@@ -69,8 +69,6 @@ public class LancamentoRepositoryImpl implements LancamentoRepositoryQuery {
 		int totalRegistrosPorPagina = pageable.getPageSize();
 		int primeiroRegistroDaPagina = paginaAtual * totalRegistrosPorPagina;
 		
-		System.out.println("Primeiro registro: " + primeiroRegistroDaPagina);
-		
 		query.setFirstResult(primeiroRegistroDaPagina);
 		query.setMaxResults(totalRegistrosPorPagina);
 	}
