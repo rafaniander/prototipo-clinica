@@ -10,6 +10,7 @@ export class AppComponent {
 
   adicionar(nome : string) {
     this.nome = nome;
-  }
+    console.log('Clicou no botão!');    
+  }  
 
 }
