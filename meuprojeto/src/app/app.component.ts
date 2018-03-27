@@ -7,10 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   nome = 'Rafael';
+  adicionado = false;
 
-  adicionar(nome : string) {
-    this.nome = nome;
-    console.log('Clicou no botão!');    
+  adicionar() {    
+    console.log(`Adicionando ${this.nome}`);
+    this.adicionado = true;    
   }  
 
 }
