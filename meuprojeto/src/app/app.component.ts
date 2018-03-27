@@ -6,12 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  nome = 'Rafael';
+  ultimoId = 0;
+  nome = 'Rafael';  
   adicionado = false;
+  funcionarios = [];  
 
   adicionar() {    
     console.log(`Adicionando ${this.nome}`);
-    this.adicionado = true;    
+    this.adicionado = true; 
+    this.funcionarios.push({
+      id: ++this.ultimoId,
+      nome: this.nome
+    });   
   }  
 
 }
