@@ -5,6 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './bem-vindo.component.html',
   styleUrls: ['./bem-vindo.component.css']
 })
-export class BemVindoComponent {  
+export class BemVindoComponent {
 
 }

@@ -9,9 +9,9 @@ export class FuncionarioFormComponent {
   ultimoId = 0;
   nome = 'Rafael';
   adicionado = false;
-  @Output('criado') funcionarioAdicionado = new EventEmitter();
+  @Output() funcionarioAdicionado = new EventEmitter();
 
-  adicionar() {    
+  adicionar() {
     this.adicionado = true;
     const funcionario = {
       id: ++this.ultimoId,
