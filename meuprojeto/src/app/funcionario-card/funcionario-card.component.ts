@@ -16,10 +16,12 @@ export class FuncionarioCardComponent {
   @Input('obj') funcionario: any;
 
   getEstilosCartao() {
-    return {
-      'border-width.px': this.funcionario.id,
+    return {      
       backgroundColor: this.funcionario.id % 2 === 0 ? 'lightblue' : 'lightgreen'
     }
   }
 
+  isAdmin() {
+    return this.funcionario.nome.startsWith('R');
+  }
 }
