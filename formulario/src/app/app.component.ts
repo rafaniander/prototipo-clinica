@@ -10,6 +10,9 @@ export class AppComponent {
 
   salvar(form: NgForm) {
     console.log(form);
+    console.log(form.value.nome);
+    console.log(form.value.email);
+    console.log(form.value.profissao);
   }
 
 }
