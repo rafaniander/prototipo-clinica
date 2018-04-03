@@ -19,6 +19,8 @@ export class AppComponent {
 
   salvar(form: NgForm) {
     console.log(form);
+
+    form.reset({profissao: ''});
   }
 
 }
