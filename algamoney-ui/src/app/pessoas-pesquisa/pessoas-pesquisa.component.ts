@@ -15,7 +15,7 @@ export class PessoasPesquisaComponent {
       nome: 'Renata Marques', cidade: 'Guarulhos', estado: 'SP', ativo: true
     },
     {
-      nome: 'Reginaldo Marques', cidade: 'Parabapuã', estado: 'SP', ativo: true
+      nome: 'Reginaldo Marques', cidade: 'Paranapuã', estado: 'SP', ativo: true
     },
     {
       nome: 'Michel Não Lembro', cidade: 'Guarulhos', estado: 'SP', ativo: false
