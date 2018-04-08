@@ -9,6 +9,8 @@ import { TooltipModule } from 'primeng/tooltip';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 
+import { SharedModule } from './../shared/shared.module';
+
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { PessoasGridComponent } from './pessoas-grid/pessoas-grid.component';
@@ -21,7 +23,8 @@ import { PessoasGridComponent } from './pessoas-grid/pessoas-grid.component';
     DataTableModule,
     TooltipModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    SharedModule
   ],
   declarations: [
     PessoaCadastroComponent,
