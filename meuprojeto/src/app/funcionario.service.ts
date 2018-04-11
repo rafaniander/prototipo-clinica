@@ -22,8 +22,12 @@ export class FuncionarioService {
 
 export class FuncionarioAbreviadoService extends FuncionarioService {
 
+  constructor(private numeroCaracteres: number) {
+    super();
+  }
+
   adicionar(nome: string) {
-    super.adicionar(nome.substr(0, 3) + '...');
+    super.adicionar(nome.substr(0, this.numeroCaracteres) + '...');
   }
 
 }
