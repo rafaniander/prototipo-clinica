@@ -1,5 +1,6 @@
-import { FuncionarioService } from './../funcionario.service';
 import { Component } from '@angular/core';
+
+import { FuncionarioService } from './../funcionario.service';
 
 @Component({
   selector: 'app-funcionario-form',
@@ -9,7 +10,7 @@ import { Component } from '@angular/core';
 export class FuncionarioFormComponent {
 
   constructor(
-    private funcionarioService: FuncionarioService,
+    private funcionarioService: FuncionarioService
   ) { }
 
   adicionar(nome: string) {
