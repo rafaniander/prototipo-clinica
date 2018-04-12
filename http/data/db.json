@@ -1,0 +1,24 @@
+{
+  "cidades": [
+    {
+      "nome": "Uberlândia",
+      "id": 1
+    },
+    {
+      "nome": "São Paulo",
+      "id": 2
+    },
+    {
+      "nome": "Fortaleza",
+      "id": 3
+    },
+    {
+      "nome": "Fernandópolis",
+      "id": 4
+    },
+    {
+      "nome": "Estrela D Oeste",
+      "id": 5
+    }
+  ]
+}
