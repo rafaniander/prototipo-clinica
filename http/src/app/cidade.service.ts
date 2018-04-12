@@ -13,4 +13,10 @@ export class CidadeService {
       .then(response => response.json());
   }
 
+  adicionar(cidade: any): Promise<any> {
+    return this.http.post('http://localhost:3000/cidades', cidade)
+      .toPromise()
+      .then(response => response.json());
+  }
+
 }
