@@ -26,9 +26,12 @@ export class CidadeService {
   }
 
   atualizar(cidade: any): Promise<any> {
-    return this.http.put(`http://localhost:3000/cidades/${cidade.id}`, cidade)
+    return this.http.put(`http://localhost:3000/cidade/${cidade.id}`, cidade)
       .toPromise()
-      .then(reponse => reponse.json());
+      .then(reponse => reponse.json())
+      .catch(erro => {
+        console.log(erro);
+      });
   }
 
 }
