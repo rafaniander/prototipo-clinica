@@ -1,5 +1,8 @@
-import { LancamentoService, LancamentoFiltro } from './../lancamento.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
+
+import { LancamentoService, LancamentoFiltro } from './../lancamento.service';
+import { ErrorHandlerService } from './../../core/error-handler.service';
+
 import { LazyLoadEvent } from 'primeng/components/common/lazyloadevent';
 import { ConfirmationService } from 'primeng/api';
 import { ToastyService } from 'ng2-toasty';
@@ -19,6 +22,7 @@ export class LancamentosPesquisaComponent implements OnInit {
 
   constructor(
     private lancamentoService: LancamentoService,
+    private errorHandlerService: ErrorHandlerService,
     private toastyService: ToastyService,
     private confirmationService: ConfirmationService
   ) { }
@@ -32,7 +36,8 @@ export class LancamentosPesquisaComponent implements OnInit {
       .then(resultado => {
         this.totalRegistros = resultado.total;
         this.lancamentos = resultado.lancamentos;
-      });
+      })
+      .catch(erro => this.errorHandlerService.handle(erro));
   }
 
   aoMudarPagina(event: LazyLoadEvent) {
