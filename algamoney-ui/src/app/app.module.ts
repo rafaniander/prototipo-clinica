@@ -1,6 +1,4 @@
-import { PessoaService } from './pessoas/pessoa.service';
-import { LancamentoService } from './lancamentos/lancamento.service';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
@@ -12,9 +10,15 @@ import { ConfirmationService } from 'primeng/api';
 
 import { CoreModule } from './core/core.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
+import { LancamentoService } from './lancamentos/lancamento.service';
 import { PessoasModule } from './pessoas/pessoas.module';
+import { PessoaService } from './pessoas/pessoa.service';
 
 import { AppComponent } from './app.component';
+
+import { registerLocaleData } from '@angular/common';
+import pt from '@angular/common/locales/pt';
+registerLocaleData(pt);
 
 @NgModule({
   declarations: [
@@ -31,6 +35,7 @@ import { AppComponent } from './app.component';
     PessoasModule
   ],
   providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },
     LancamentoService,
     PessoaService,
     ConfirmationService
