@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ErrorHandlerService } from './error-handler.service';
 import { LancamentoService } from './../lancamentos/lancamento.service';
 import { PessoaService } from './../pessoas/pessoa.service';
+import { CategoriaService } from './../categorias/categoria.service';
 
 import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
@@ -33,6 +34,7 @@ registerLocaleData(pt);
     ErrorHandlerService,
     LancamentoService,
     PessoaService,
+    CategoriaService,
     { provide: LOCALE_ID, useValue: 'pt' }
   ]
 })
