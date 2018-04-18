@@ -14,6 +14,15 @@ export class PessoaService {
 
   constructor(private http: Http) { }
 
+  listarTodas(): Promise<any> {
+    const headers = new Headers();
+    headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+
+    return this.http.get(this.pessoasUrl, { headers })
+      .toPromise()
+      .then(response => response.json().content);
+  }
+
   pesquisar(filtro: PessoaFiltro): Promise<any> {
     const params = new URLSearchParams();
     const headers = new Headers();
@@ -42,13 +51,13 @@ export class PessoaService {
       });
   }
 
-  listarTodas(): Promise<any> {
+  excluir(codigo: number): Promise<void> {
     const headers = new Headers();
     headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
-    return this.http.get(this.pessoasUrl, { headers })
+    return this.http.delete(`${this.pessoasUrl}/${codigo}`, { headers })
       .toPromise()
-      .then(response => response.json().content);
+      .then(() => null);
   }
 
 }
