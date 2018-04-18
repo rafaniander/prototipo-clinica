@@ -66,7 +66,30 @@ export class PessoasPesquisaComponent implements OnInit {
         this.toastyService.success('Pessoa excluída com sucesso!');
       })
       .catch(erro => this.errorHandlerService.handle(erro));
+  }
 
+  confirmarAlterarStatus(pessoa: any) {
+    this.confirmationService.confirm({
+      message: `Tem certeza que deseja ${pessoa.ativo ? 'inativar' : 'ativar'} ${pessoa.nome}?`,
+      accept: () => {
+        this.alterarStatus(pessoa);
+      }
+    });
+  }
+
+  alterarStatus(pessoa: any) {
+    const novoStatus = !pessoa.ativo;
+    this.pessoaService.alterarStatus(pessoa.codigo, novoStatus)
+      .then(() => {
+        if (this.grid.first === 0) {
+          this.pesquisar();
+        } else {
+          this.grid.first = 0;
+        }
+
+        this.toastyService.success(`Status de ${pessoa.nome} foi alterado para ${novoStatus ? 'ativo' : 'inativo'}!`);
+      })
+      .catch(erro => this.errorHandlerService.handle(erro));
   }
 
 }
