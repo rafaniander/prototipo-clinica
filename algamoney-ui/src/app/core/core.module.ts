@@ -1,5 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { ToastyModule } from 'ng2-toasty';
 
@@ -20,10 +21,13 @@ registerLocaleData(pt);
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     ToastyModule.forRoot(),
     ConfirmDialogModule
   ],
-  declarations: [NavbarComponent],
+  declarations: [
+    NavbarComponent
+  ],
   exports: [
     NavbarComponent,
     ToastyModule,
