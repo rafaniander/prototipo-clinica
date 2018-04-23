@@ -16,6 +16,7 @@ import { CategoriaService } from './../categorias/categoria.service';
 
 import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 registerLocaleData(pt);
 
 @NgModule({
@@ -26,7 +27,8 @@ registerLocaleData(pt);
     ConfirmDialogModule
   ],
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    PaginaNaoEncontradaComponent
   ],
   exports: [
     NavbarComponent,
