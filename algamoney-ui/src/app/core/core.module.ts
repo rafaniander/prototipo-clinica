@@ -10,6 +10,7 @@ import { ConfirmationService } from 'primeng/api';
 
 import { NavbarComponent } from './navbar/navbar.component';
 
+import { AuthService } from '../seguranca/auth.service';
 import { ErrorHandlerService } from './error-handler.service';
 import { LancamentoService } from './../lancamentos/lancamento.service';
 import { PessoaService } from './../pessoas/pessoa.service';
@@ -37,11 +38,12 @@ registerLocaleData(pt);
     ConfirmDialogModule
   ],
   providers: [
-    ConfirmationService,
-    ErrorHandlerService,
+    CategoriaService,
     LancamentoService,
     PessoaService,
-    CategoriaService,
+    ErrorHandlerService,
+    AuthService,
+    ConfirmationService,
     Title,
     { provide: LOCALE_ID, useValue: 'pt' }
   ]
