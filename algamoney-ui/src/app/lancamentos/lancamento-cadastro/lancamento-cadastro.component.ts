@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { ToastyService } from 'ng2-toasty';
 
@@ -35,23 +36,60 @@ export class LancamentoCadastroComponent implements OnInit {
     private lancamentoService: LancamentoService,
     private errorHandlerService: ErrorHandlerService,
     private toastyService: ToastyService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
+    private title: Title
   ) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot.params['codigo']);
+    this.title.setTitle('Novo lançamento');
+
+    const codigoLancamento = this.route.snapshot.params['codigo'];
+
+    if (codigoLancamento) {
+      this.carregarLancamento(codigoLancamento);
+    }
 
     this.carregarCategorias();
     this.carregarPessoas();
   }
 
-  salvar(form: FormControl) {
-    this.lancamentoService.adicionar(this.lancamento)
-      .then(() => {
-        this.toastyService.success('Lançamento adicionado com sucesso!');
+  get editando() {
+    return Boolean(this.lancamento.codigo);
+  }
 
-        form.reset();
-        this.lancamento = new Lancamento();
+  carregarLancamento(codigo: number) {
+    this.lancamentoService.buscarPorCodigo(codigo)
+      .then(lancamento => {
+        this.lancamento = lancamento;
+        this.atualizarTituloEdicao();
+      })
+      .catch(erro => this.errorHandlerService.handle(erro));
+  }
+
+  salvar(form: FormControl) {
+    if (this.editando) {
+      this.atualizarLancamento(form);
+    } else {
+      this.adicionarLancamento(form);
+    }
+  }
+
+  adicionarLancamento(form: FormControl) {
+    this.lancamentoService.adicionar(this.lancamento)
+      .then(lancamentoAdicionado => {
+        this.toastyService.success('Lançamento adicionado com sucesso!');
+        this.router.navigate(['/lancamentos', lancamentoAdicionado.codigo]);
+      })
+      .catch(erro => this.errorHandlerService.handle(erro));
+  }
+
+  atualizarLancamento(form: FormControl) {
+    this.lancamentoService.atualizar(this.lancamento)
+      .then(lancamentoAtualizado => {
+        this.lancamento = lancamentoAtualizado;
+        this.toastyService.success('Lançamento alterado com sucesso!');
+        this.atualizarTituloEdicao();
       })
       .catch(erro => this.errorHandlerService.handle(erro));
   }
@@ -74,6 +112,20 @@ export class LancamentoCadastroComponent implements OnInit {
         });
       })
       .catch(erro => this.errorHandlerService.handle(erro));
+  }
+
+  novo(form: FormControl) {
+    form.reset();
+
+    setTimeout(function () {
+      this.lancamento = new Lancamento();
+    }.bind(this), 1);
+
+    this.router.navigate(['/lancamentos/novo']);
+  }
+
+  atualizarTituloEdicao() {
+    this.title.setTitle(`Edição de lançamento: ${this.lancamento.descricao}`);
   }
 
 }

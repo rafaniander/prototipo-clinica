@@ -14,26 +14,24 @@ import { SharedModule } from './../shared/shared.module';
 
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
+import { PessoasRoutModuleModule } from './pessoas-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule,
     InputMaskModule,
     DataTableModule,
     TooltipModule,
     InputTextModule,
     ButtonModule,
-    SharedModule
+    SharedModule,
+    PessoasRoutModuleModule
   ],
   declarations: [
     PessoaCadastroComponent,
     PessoasPesquisaComponent
   ],
-  exports: [
-    PessoaCadastroComponent,
-    PessoasPesquisaComponent
-  ]
+  exports: []
 })
 export class PessoasModule { }

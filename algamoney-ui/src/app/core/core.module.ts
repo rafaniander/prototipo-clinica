@@ -1,6 +1,7 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { ToastyModule } from 'ng2-toasty';
 
@@ -16,6 +17,7 @@ import { CategoriaService } from './../categorias/categoria.service';
 
 import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 registerLocaleData(pt);
 
 @NgModule({
@@ -26,7 +28,8 @@ registerLocaleData(pt);
     ConfirmDialogModule
   ],
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    PaginaNaoEncontradaComponent
   ],
   exports: [
     NavbarComponent,
@@ -39,6 +42,7 @@ registerLocaleData(pt);
     LancamentoService,
     PessoaService,
     CategoriaService,
+    Title,
     { provide: LOCALE_ID, useValue: 'pt' }
   ]
 })
