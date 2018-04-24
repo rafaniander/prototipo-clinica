@@ -7,7 +7,6 @@ import { HttpModule } from '@angular/http';
 
 import { CoreModule } from './core/core.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
-import { LancamentoService } from './lancamentos/lancamento.service';
 import { PessoasModule } from './pessoas/pessoas.module';
 import { AppRoutingModule } from './app-routing.module';
 
