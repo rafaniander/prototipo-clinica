@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import { PessoaService, PessoaFiltro } from './../pessoa.service';
 import { ErrorHandlerService } from '../../core/error-handler.service';
@@ -24,10 +25,13 @@ export class PessoasPesquisaComponent implements OnInit {
     private pessoaService: PessoaService,
     private errorHandlerService: ErrorHandlerService,
     private toastyService: ToastyService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private title: Title
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.title.setTitle('Pesquisa de pessoas');
+  }
 
   pesquisar(pagina = 0) {
     this.filtro.pagina = pagina;
