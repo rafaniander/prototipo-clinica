@@ -4,11 +4,13 @@ import { RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { ToastyModule } from 'ng2-toasty';
+import { JwtHelper } from 'angular2-jwt';
 
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 
 import { NavbarComponent } from './navbar/navbar.component';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 
 import { AuthService } from '../seguranca/auth.service';
 import { ErrorHandlerService } from './error-handler.service';
@@ -18,7 +20,6 @@ import { CategoriaService } from './../categorias/categoria.service';
 
 import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
-import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 registerLocaleData(pt);
 
 @NgModule({
@@ -45,6 +46,7 @@ registerLocaleData(pt);
     AuthService,
     ConfirmationService,
     Title,
+    JwtHelper,
     { provide: LOCALE_ID, useValue: 'pt' }
   ]
 })
