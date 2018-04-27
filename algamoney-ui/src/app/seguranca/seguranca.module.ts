@@ -11,6 +11,7 @@ import { ButtonModule } from 'primeng/button';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { MoneyHttp } from './money-http';
+import { LogoutService } from './logout.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SegurancaRoutingModule } from './seguranca-routing.module';
 
@@ -41,7 +42,8 @@ export function authHttpServiceFactory(auth: AuthService, http: Http, options: R
       useFactory: authHttpServiceFactory,
       deps: [AuthService, Http, RequestOptions]
     },
-    AuthGuard
+    AuthGuard,
+    LogoutService
   ]
 })
 export class SegurancaModule { }
