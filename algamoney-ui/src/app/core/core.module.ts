@@ -11,6 +11,7 @@ import { ConfirmationService } from 'primeng/api';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
+import { NaoAutorizadoComponent } from './nao-autorizado.component';
 
 import { AuthService } from '../seguranca/auth.service';
 import { ErrorHandlerService } from './error-handler.service';
@@ -31,7 +32,8 @@ registerLocaleData(pt);
   ],
   declarations: [
     NavbarComponent,
-    PaginaNaoEncontradaComponent
+    PaginaNaoEncontradaComponent,
+    NaoAutorizadoComponent
   ],
   exports: [
     NavbarComponent,
