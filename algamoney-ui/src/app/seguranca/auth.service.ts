@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
 import { JwtHelper } from 'angular2-jwt';
-import { promised } from 'q';
+
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
 
-  oauthTokenUrl = 'http://localhost:8080/oauth/token';
+  oauthTokenUrl: string;
   jwtPayload: any;
 
   constructor(
@@ -15,6 +16,7 @@ export class AuthService {
     private jwtHelper: JwtHelper
   ) {
     this.carregarToken();
+    this.oauthTokenUrl = `${environment.apiUrl}/oauth/token`;
   }
 
   login(usuario: string, senha: string): Promise<void> {
